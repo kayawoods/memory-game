@@ -1,0 +1,22 @@
+body { 
+    min-height: 100vh; 
+    min-width: 100vw; 
+    background-color: pink
+ 
+
+
+}
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+}
+
+    .card {
+        width: 25%;
+        aspect-ratio: 1/1;
+        border: 3px solid orangered;
+        font-size: 64px;
+        text-align: center;
+      } 
+
