@@ -14,26 +14,23 @@ const cards = [
     '🧇', '🧇']
 
 
-// // /*---------------------------- Variables (state) ----------------------------*/
+// /*---------------------------- Variables (state) ----------------------------*/
 let firstPick = ''
 let secondPick = ''
-// let cardClickNumber; 
-// let timeLeft 
-// let pairsLeftToMatch 
+let matches = 0
+
+
+
 /*------------------------ Cached Element References ------------------------*/
-// const boardDisplayEl = document.querySelector('#board-display');
-// const cardDisplayEl = document.querySelector('#card-display');
-// const messageDisplayEl = document.querySelector('#message-display');
-// const timerDisplayEl = document.querySelector('#timer-display');
-// const replayDisplayEl = document.querySelector('#replay-display');
+
 
 const cardElements = document.querySelectorAll('.card');
 /*-------------------------------- Functions --------------------------------*/
-// function handleClick(event) {
-//    let clickedCard = event.target
+
 
 const flipCard = (event) => {
     let clickedCard = event.target;
+
     if (!firstPick) {
         firstPick = clickedCard;
         console.log('First Pick:', firstPick.innerText);
@@ -41,23 +38,51 @@ const flipCard = (event) => {
     else if (!secondPick) {
         secondPick = clickedCard;
         console.log('Second Pick:', secondPick.innerText);
-    }
+    
     if (firstPick.innerText === secondPick.innerText) {
-        console.log('match')
+        console.log('match');
     } else {
-        console.log('not a match')
-    }
+        console.log('not a match');
 
-
+    } 
+    resetTurn();
 }
 
 
-    ;
+}; 
+const resetTurn = () => {
+    firstPick = null;
+    secondPick = null;
+};
+// }
+// if round = 90 seconds and matched pairs = then, 
+// };
+// if (timer === 0) && (matches !== 12) {
+//     console.log ('lost')
+// } else if { 
 
-const resetBoard = (event) => {
-    const timerGoes
+//  (matches === 12) 
+//  console.log('win')
+// }
 
-}
+// const timer = () => { 
+//     sec === 90 
+//     document.getElementById('timer') 
+//     if (sec < 0) {
+//         resetTimer; 
+//     }
+// const setTimeout (timer, )
+
+
+
+
+// const resetTimer = () { 
+
+// }
+// const resetBoard = (event) => {
+//     const timerGoes
+
+// reset the value of first card and second card 
 
 
 // checkIfPair()
@@ -81,5 +106,39 @@ cardElements.forEach(card => {
 // focus on clicking matching pair to increase score or non matching pair 
 
 // dom events lab - number variables stored - 1st amd 2nd clicks stored
+
+
+// call back function
+// milla seconds between every single code 
+
+// let timer = 90; 
+
+// const countTimerDown = () => {
+//     timer = timer -1; 
+//     console.log (timer); 
+// }
+
+// setInterval (countTimerDown, 1000); 
+
+// -that will take timer keep going down and keep going 
+// not going to stop at any point 
+
+// probably want delay 
+// when timer = 0, 
+
+
+
+
+// let timer = 10; 
+// const countTimerDown = () => {
+//     if (timer >= 0) { 
+// timer = timer -1; 
+// console.log(the clock at at, timer)
+
+// setInterval (countTimerDown, 1000)
+
+// 
+
+
 
 
