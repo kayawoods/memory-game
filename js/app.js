@@ -15,9 +15,11 @@ const cards = [
 
 
 // /*---------------------------- Variables (state) ----------------------------*/
-let firstPick = ''
-let secondPick = ''
-let matches = 0
+let firstPick = null;
+let secondPick = null;
+let matches = 0;
+let timer = 90;
+
 
 
 
@@ -25,11 +27,27 @@ let matches = 0
 
 
 const cardElements = document.querySelectorAll('.card');
+// const timerDisplay = document.getElementById('timer');
 /*-------------------------------- Functions --------------------------------*/
+
+cardElements.forEach(function (card) {
+    if (card.classList.contains('garlic')) {
+        card.addEventListener('click', function (event) {
+            event.target.classList.toggle('garlic')
+        })
+    } else if (card.classList.contains('bean')) {
+        card.addEventListener('click', function (event) {
+            event.target.classList.toggle('bean')
+        })
+    }
+})
+
 
 
 const flipCard = (event) => {
     let clickedCard = event.target;
+
+
 
     if (!firstPick) {
         firstPick = clickedCard;
@@ -37,21 +55,31 @@ const flipCard = (event) => {
     }
     else if (!secondPick) {
         secondPick = clickedCard;
+        matches += 1
         console.log('Second Pick:', secondPick.innerText);
-    
-    if (firstPick.innerText === secondPick.innerText) {
-        console.log('match');
-        firstPick.removeEventListener('click', handleClick)
-        secondPick.removeEventListener('click', handleClick)
-    } else {
-        console.log('not a match');
 
-    } 
-    resetTurn();
-}
+        if (firstPick.innerText === secondPick.innerText) {
+            console.log('match');
+            firstPick.removeEventListener('click', flipCard)
+            secondPick.removeEventListener('click', flipCard)
+        } else {
+            console.log('not a match');
 
 
-}; 
+        }
+        resetTurn();
+
+        // if (matches === 12) {
+        //     console.log('win!')
+        //     //  need to clear/sync with timer 
+        // }
+        // else if (timer === 0 && matches !== 12) {
+        //     console.log('lose!')
+
+    }
+
+
+};
 const resetTurn = () => {
     firstPick = null;
     secondPick = null;
@@ -77,22 +105,6 @@ const resetTurn = () => {
 
 
 
-
-// const resetTimer = () { 
-
-// }
-// const resetBoard = (event) => {
-//     const timerGoes
-
-// reset the value of first card and second card 
-
-
-// checkIfPair()
-// removeIfPair()
-// resetBoard()
-// randomShuffle()
-// beginTimer()
-// endGame() 
 /*----------------------------- Event Listeners -----------------------------*/
 
 
@@ -103,38 +115,32 @@ cardElements.forEach(card => {
 });
 
 
-// hold off on card flipping and randomizing the cards 
-
-// focus on clicking matching pair to increase score or non matching pair 
-
-// dom events lab - number variables stored - 1st amd 2nd clicks stored
-
 
 // call back function
-// milla seconds between every single code 
+// milla seconds between every single code
 
-// let timer = 90; 
+// let timer = 90;
 
 // const countTimerDown = () => {
-//     timer = timer -1; 
-//     console.log (timer); 
+//     timer = timer -1;
+//     console.log (timer);
 // }
 
-// setInterval (countTimerDown, 1000); 
+// setInterval (countTimerDown, 1000);
 
-// -that will take timer keep going down and keep going 
-// not going to stop at any point 
+// -that will take timer keep going down and keep going
+// not going to stop at any point
 
-// probably want delay 
-// when timer = 0, 
-
-
+// probably want delay
+// when timer = 0,
 
 
-// let timer = 10; 
+
+
+// let timer = 10;
 // const countTimerDown = () => {
-//     if (timer >= 0) { 
-// timer = timer -1; 
+//     if (timer >= 0) {
+// timer = timer -1;
 // console.log(the clock at at, timer)
 
 // setInterval (countTimerDown, 1000)

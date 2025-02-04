@@ -20,12 +20,6 @@ body {
     margin: auto;
 }
 
-
-
-
-
- 
-
 .card {
     display: flex;
     align-items: center;
@@ -34,6 +28,14 @@ body {
     font-size: 60px;
     text-align: center;
     background: linear-gradient(to bottom, rgb(46, 139, 87), rgb(255, 223, 96));
+}
+
+.garlic::before {
+    content: '🧄'; 
+}
+
+.bean::before {
+    content: '🫘'; 
 }
 
       .button-container {
