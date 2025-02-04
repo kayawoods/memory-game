@@ -15,8 +15,8 @@ const cards = [
 
 
 // // /*---------------------------- Variables (state) ----------------------------*/
-let firstPick;
-let secondPick;
+let firstPick = ''
+let secondPick = ''
 // let cardClickNumber; 
 // let timeLeft 
 // let pairsLeftToMatch 
@@ -29,13 +29,37 @@ let secondPick;
 
 const cardElements = document.querySelectorAll('.card');
 /*-------------------------------- Functions --------------------------------*/
-function handleClick(event) {
-    console.log('this is not clicking ha ha')
+// function handleClick(event) {
+//    let clickedCard = event.target
+
+const flipCard = (event) => {
+    let clickedCard = event.target;
+    if (!firstPick) {
+        firstPick = clickedCard;
+        console.log('First Pick:', firstPick.innerText);
+    }
+    else if (!secondPick) {
+        secondPick = clickedCard;
+        console.log('Second Pick:', secondPick.innerText);
+    }
+    if (firstPick.innerText === secondPick.innerText) {
+        console.log('match')
+    } else {
+        console.log('not a match')
     }
 
-// flipCard() 
-// function flipCard (cards)
-// if ()
+
+}
+
+
+    ;
+
+const resetBoard = (event) => {
+    const timerGoes
+
+}
+
+
 // checkIfPair()
 // removeIfPair()
 // resetBoard()
@@ -48,8 +72,8 @@ function handleClick(event) {
 
 
 cardElements.forEach(card => {
-    card.addEventListener('click', handleClick);
-}); 
+    card.addEventListener('click', flipCard);
+});
 
 
 // hold off on card flipping and randomizing the cards 
@@ -57,3 +81,5 @@ cardElements.forEach(card => {
 // focus on clicking matching pair to increase score or non matching pair 
 
 // dom events lab - number variables stored - 1st amd 2nd clicks stored
+
+
