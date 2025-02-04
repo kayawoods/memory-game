@@ -1,39 +1,40 @@
 header {
     text-align: center;
+    font-family:cursive
 }
 
 body { 
-    min-height: 90vh; 
+    min-height: h; 
     min-width: 90vw; 
-    background-color: pink
+    background: linear-gradient(to bottom, pink, lightblue); 
  
 
 
 }
 .board {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr); /* Reduce row count */
+    grid-template-columns: repeat(6, 1fr); /* 6 columns */
+    grid-template-rows: repeat(4, 1fr); /* 4 rows */
     gap: 10px;
     width: 600px;
-    height: auto; /* Let it adjust dynamically */
     margin: auto;
 }
 
 
 
 
+
  
 
-      .card {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 3px solid rgb(0, 0, 0);
-        font-size: 60px;
-        text-align: center;
-        background-color: rgb(58, 168, 35);
-      }
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgb(54, 107, 109);
+    font-size: 60px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(46, 139, 87), rgb(255, 223, 96));
+}
 
       .button-container {
         display: flex;

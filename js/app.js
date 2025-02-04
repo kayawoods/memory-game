@@ -41,6 +41,8 @@ const flipCard = (event) => {
     
     if (firstPick.innerText === secondPick.innerText) {
         console.log('match');
+        firstPick.removeEventListener('click', handleClick)
+        secondPick.removeEventListener('click', handleClick)
     } else {
         console.log('not a match');
 
