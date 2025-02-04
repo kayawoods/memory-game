@@ -18,6 +18,7 @@ body {
     gap: 10px;
     width: 600px;
     margin: auto;
+    grid-auto-flow: row dense; 
 }
 
 .card {
@@ -30,6 +31,9 @@ body {
     background: linear-gradient(to bottom, rgb(46, 139, 87), rgb(255, 223, 96));
 }
 
+.hide {
+    opacity: 0; 
+}
 .garlic::before {
     content: '🧄'; 
 }
@@ -38,6 +42,45 @@ body {
     content: '🫘'; 
 }
 
+.spaghetti::before {
+    content: '🍝'; 
+}
+
+.banana::before{
+    content: '🍌';
+}
+
+.tomato::before {
+    content: '🍅';
+}
+
+.ginger::before {
+    content: '🫚';
+}
+
+.custard::before{
+    content: '🍮';
+}
+
+.cheese::before{
+    content: '🧀';
+}
+
+.bottle::before{
+    content:'🍼';
+}
+
+.steak::before{
+    content:'🥩';
+}
+
+.sweetPot::before{
+    content: '🍠';
+}
+
+.waffle::before{
+    content: '🧇';
+}
       .button-container {
         display: flex;
         justify-content: center; /* Center horizontally */
