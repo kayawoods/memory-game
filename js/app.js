@@ -19,6 +19,7 @@ let firstPick = null;
 let secondPick = null;
 let matches = 0;
 let timer = 90;
+let clicks = 0;
 
 
 
@@ -26,10 +27,71 @@ let timer = 90;
 /*------------------------ Cached Element References ------------------------*/
 
 
-const cardElements = document.querySelectorAll('.card');
-// const timerDisplay = document.getElementById('timer');
+// const cardElements = document.querySelectorAll('.card');
+// const card = document.getElementsByClassName('card)')
+const board = document.querySelector('.board');
+// const message = document.querySelector ('#messageDisplay');
+
+
+
 /*-------------------------------- Functions --------------------------------*/
-const card = document.getElementsByClassName('card)')
+cards.forEach(function (emoji) {
+    const card = document.createElement('div')
+    const cardChild = document.createElement('div')
+    card.classList.add('card')
+    if (emoji === '🧄') {
+        card.classList.add('garlic')
+        card.appendChild(cardChild)
+        cardChild.innerText = '🧄'
+
+    }
+    else if (emoji === '🫘') {
+        card.classList.add('bean')
+        card.innerText = '🫘'
+    }
+    else if (emoji === '🍝') {
+        card.classList.add('spaghetti')
+        card.innerText = '🍝'
+    }
+    else if (emoji === '🍌') {
+        card.classList.add('banana')
+        card.innerText = '🍌'
+    }
+    else if (emoji === '🍅') {
+        card.classList.add('tomato')
+        card.innerText = '🍅'
+    }
+    else if (emoji === '🫚') {
+        card.classList.add('ginger')
+        card.innerText = '🫚'
+    }
+    else if (emoji === '🍮') {
+        card.classList.add('custard')
+        card.innerText = '🍮'
+    }
+    else if (emoji === '🧀') {
+        card.classList.add('cheese')
+        card.innerText = '🧀'
+    }
+    else if (emoji === '🍼') {
+        card.classList.add('bottle')
+        card.innerText = '🍼'
+    }
+    else if (emoji === '🥩') {
+        card.classList.add('steak')
+        card.innerText = '🥩'
+    }
+    else if (emoji === '🍠') {
+        card.classList.add('sweetPot')
+        card.innerText = '🍠'
+    }
+    else if (emoji === '🧇') {
+        card.classList.add('waffle')
+        card.innerText = '🧇'
+    }
+    board.appendChild(card)
+})
+const cardElements = document.querySelectorAll('.card');
 
 
 
@@ -87,116 +149,86 @@ const card = document.getElementsByClassName('card)')
 
 
 
-cardElements.forEach(function (card) {
-    card.addEventListener('click', function (event) {
-        event.target.classList.toggle('hide')
-    }) 
-})
+// cardElements.forEach(function(card) {
+//     card.addEventListener('click', function (event) {
+
+
+//     }) 
+// })
 
 
 
+const flipCard = (event) => {
+    let clickedCard = event.target;
+    // clickedCard.classList.toggle('hide')
+    clicks += 1
 
+    if (!firstPick) {
+        firstPick = clickedCard;
+        console.log('First Pick:', firstPick.innerText);
+    }
+    else if (!secondPick) {
+        secondPick = clickedCard;
+        matches += 1
+        console.log('Second Pick:', secondPick.innerText);
 
-
-
-
-        const flipCard = (event) => {
-            let clickedCard = event.target;
-
-
-
-            if (!firstPick) {
-                firstPick = clickedCard;
-                console.log('First Pick:', firstPick.innerText);
+        if (firstPick.innerText === secondPick.innerText) {
+            console.log('match');
+            firstPick.removeEventListener('click', flipCard)
+            secondPick.removeEventListener('click', flipCard)
+        } else {
+            console.log('not a match');
+            messageDisplay.innerText = message
+            if (matches === 12) {
+                gameMessage.innerHTML = 'you are a winner'
+                console.log('winner!')
             }
-            else if (!secondPick) {
-                secondPick = clickedCard;
-                matches += 1
-                console.log('Second Pick:', secondPick.innerText);
-
-                if (firstPick.innerText === secondPick.innerText) {
-                    console.log('match');
-                    firstPick.removeEventListener('click', flipCard)
-                    secondPick.removeEventListener('click', flipCard)
-                } else {
-                    console.log('not a match');
-
-
-                }
-                resetTurn();
-
-                // if (matches === 12) {
-                //     console.log('win!')
-                //     //  need to clear/sync with timer 
-                // }
-                // else if (timer === 0 && matches !== 12) {
-                //     console.log('lose!')
+            else if (timer === 0 && matches !== 12) {
+                gameMessage.innerHTML = 'you lost dude'
+                console.log('loser!')
+                
 
             }
 
+        }
+        resetTurn()
 
-        };
-        const resetTurn = () => {
-            firstPick = null;
-            secondPick = null;
-        };
-        // }
-        // if round = 90 seconds and matched pairs = then, 
-        // };
-        // if (timer === 0) && (matches !== 12) {
-        //     console.log ('lost')
-        // } else if { 
+    }
 
-        //  (matches === 12) 
-        //  console.log('win')
-        // }
 
-        // const timer = () => { 
-        //     sec === 90 
-        //     document.getElementById('timer') 
-        //     if (sec < 0) {
-        //         resetTimer; 
-        //     }
-        // const setTimeout (timer, )
+};
+const resetTurn = () => {
+    firstPick = null;
+    secondPick = null;
+};
 
 
 
-        /*----------------------------- Event Listeners -----------------------------*/
+/*----------------------------- Event Listeners -----------------------------*/
 
 
 
 
-        cardElements.forEach(card => {
-            card.addEventListener('click', flipCard);
-        });
+cardElements.forEach(card => {
+    card.addEventListener('click', flipCard);
+});
+
+
+const countTimerDown = (seconds) => {
+    if (timer > 0) {
+        timer--;
+        timerDisplay.innerText = timer
+        console.log(timer);
+    } else {
+        timerDisplay.innerText = 0
+        console.log('times up');
+        clearInterval(interval)
+
+    }
+}
+// how to get it to stop 
+
+const interval = setInterval(countTimerDown, 1000)
 
 
 
-// call back function
-// milla seconds between every single code
-
-// let timer = 90;
-
-// const countTimerDown = () => {
-//     timer = timer -1;
-//     console.log (timer);
-// }
-
-// setInterval (countTimerDown, 1000);
-
-// -that will take timer keep going down and keep going
-// not going to stop at any point
-
-// probably want delay
-// when timer = 0,
-
-
-
-
-// let timer = 10;
-// const countTimerDown = () => {
-//     if (timer >= 0) {
-// timer = timer -1;
-// console.log(the clock at at, timer)
-
-// setInterval (countTimerDown, 1000 

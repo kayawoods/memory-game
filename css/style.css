@@ -31,10 +31,10 @@ body {
     background: linear-gradient(to bottom, rgb(46, 139, 87), rgb(255, 223, 96));
 }
 
-.hide {
-    opacity: 0; 
+.hide > div {
+    visibility: hidden; 
 }
-.garlic::before {
+/* .garlic::before {
     content: '🧄'; 
 }
 
@@ -80,7 +80,7 @@ body {
 
 .waffle::before{
     content: '🧇';
-}
+} */
       .button-container {
         display: flex;
         justify-content: center; /* Center horizontally */
