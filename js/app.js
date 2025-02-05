@@ -16,11 +16,12 @@ const cards = [
 
 // /*---------------------------- Variables (state) ----------------------------*/
 
-let firstPick 
-let secondPick 
-let matches 
+let firstPick
+let secondPick
+let matches
 let timer
-let clicks 
+let clicks
+let interval 
 
 
 
@@ -54,13 +55,16 @@ const init = () => {
     matches = 0
     timer = 10
     clicks = 0
-    
 
-   
+    cardElements.forEach(card => {
+        card.addEventListener('click', flipCard);
+    });
+
+
     render();
     timerTrack();
-    
-    
+// when function disables, make sure init re enables it 
+
 
 };
 
@@ -83,11 +87,11 @@ const countTimerDown = () => {
 const timerTrack = () => {
 
     if (timer > 0) {
-        setInterval(countTimerDown, 1000);
-    }
-};
-
-
+        clearInterval(interval)
+        interval = setInterval(countTimerDown, 1000);
+        
+}
+}
 // } else {
 //     console.log('not a match');
 //     messageDisplay.innerText = 'Not a match'
@@ -142,8 +146,8 @@ const disableCards = () => {
 
 resetButton.addEventListener('click', init)
 
-cardElements.forEach(card => {
-    card.addEventListener('click', flipCard);
-});
+// cardElements.forEach(card => {
+//     card.addEventListener('click', flipCard);
+// });
 
 init(); 
