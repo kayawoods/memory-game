@@ -122,22 +122,23 @@ const flipCard = (event) => {
         secondPick = clickedCard;
         matches += 1
         console.log('Second Pick:', secondPick.innerText);
-if (firstPick.innerText !=== secondPick={.innerText})
         if (firstPick.innerText === secondPick.innerText) {
             console.log('match');
-            firstPick.removeEventListener('click', flipCard)
-            secondPick.removeEventListener('click', flipCard)
-        }
-        resetTurn();
+            resetTurn()
+        } else if  (firstPick.innerText !== secondPick.innerText) 
+            setTimeout (() => {
+                firstPick.classList.remove('is-flipped'); 
+                secondPick.classList.remove('is-flipped'); 
+                resetTurn()  
+            }, 1000) 
+                
+              
+            
     }
-    // document.querySelectorAll('.card').forEach(card => {
-    //     card.addEventListener('click',() => {
-    //         card.classList.toggle('is-flipped');
-    //     }); 
-    // });
+    
 };
 
-
+// look at tic tac toe updateMessage function - can use some timer logic for that 
 
 const resetTurn = () => {
     firstPick = null;
