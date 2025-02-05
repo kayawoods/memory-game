@@ -15,26 +15,41 @@ const cards = [
 
 
 // /*---------------------------- Variables (state) ----------------------------*/
+
 let firstPick = null;
 let secondPick = null;
 let matches = 0;
-let timer = 90;
+let timer = 91;
 let clicks = 0;
+
 
 
 
 
 /*------------------------ Cached Element References ------------------------*/
 
-
-// const cardElements = document.querySelectorAll('.card');
-// const card = document.getElementsByClassName('card)')
 const board = document.querySelector('.board');
-// const message = document.querySelector ('#messageDisplay');
+const messageDisplay = document.querySelector('#message');
+const timerDisplay = document.querySelector('#timerDisplay');
+const resetButton = document.querySelector('#reset');
+
+
 
 
 
 /*-------------------------------- Functions --------------------------------*/
+function init(){ 
+    firstPick = null; 
+    secondPick = null; 
+    matches = 0 
+    clicks = 0
+    timer = 91; 
+    messageDisplay.innerText = 'match to win'; 
+
+
+
+}
+
 cards.forEach(function (emoji) {
     const card = document.createElement('div')
     const cardChild = document.createElement('div')
@@ -180,15 +195,14 @@ const flipCard = (event) => {
             console.log('not a match');
             messageDisplay.innerText = message
             if (matches === 12) {
-                gameMessage.innerHTML = 'you are a winner'
-                console.log('winner!')
+                 messageDisplay.innerText = 'you won';
             }
             else if (timer === 0 && matches !== 12) {
-                gameMessage.innerHTML = 'you lost dude'
+                messageDisplay.innerText = 'loser';
                 console.log('loser!')
                 
 
-            }
+            }  why isnt this working ?????
 
         }
         resetTurn()
@@ -204,7 +218,7 @@ const resetTurn = () => {
 
 
 
-/*----------------------------- Event Listeners -----------------------------*/
+
 
 
 
@@ -231,4 +245,5 @@ const countTimerDown = (seconds) => {
 const interval = setInterval(countTimerDown, 1000)
 
 
+resetButton.addEventListener('click', init)
 
