@@ -42,7 +42,7 @@ const cardElements = document.querySelectorAll('.card');
 
 
 const render = () => {
-    messageDisplay.innerText = 'match to win';
+    messageDisplay.innerText = 'you have 90 seconds to match them all';
     timerDisplay.innerText = timer
     // console.log(timer);
 
@@ -53,7 +53,7 @@ const init = () => {
     firstPick = null
     secondPick = null
     matches = 0
-    timer = 10
+    timer = 1000
     clicks = 0
 
     cardElements.forEach(card => {
@@ -73,7 +73,7 @@ const countTimerDown = () => {
     if (timer > 0) {
         timer = timer - 1;
         render();
-        console.log(timer);
+        // console.log(timer);
     }
     if (timer === 0) {
         timerDisplay.innerText = 'times up'
@@ -109,8 +109,10 @@ const timerTrack = () => {
 
 
 const flipCard = (event) => {
-    let clickedCard = event.target;
+    
+    let clickedCard = event.currentTarget;
     clicks += 1
+    clickedCard.classList.toggle('is-flipped');
 
     if (!firstPick) {
         firstPick = clickedCard;
@@ -120,7 +122,7 @@ const flipCard = (event) => {
         secondPick = clickedCard;
         matches += 1
         console.log('Second Pick:', secondPick.innerText);
-
+if (firstPick.innerText !=== secondPick={.innerText})
         if (firstPick.innerText === secondPick.innerText) {
             console.log('match');
             firstPick.removeEventListener('click', flipCard)
@@ -128,7 +130,14 @@ const flipCard = (event) => {
         }
         resetTurn();
     }
+    // document.querySelectorAll('.card').forEach(card => {
+    //     card.addEventListener('click',() => {
+    //         card.classList.toggle('is-flipped');
+    //     }); 
+    // });
 };
+
+
 
 const resetTurn = () => {
     firstPick = null;
@@ -145,6 +154,7 @@ const disableCards = () => {
 };
 
 resetButton.addEventListener('click', init)
+
 
 // cardElements.forEach(card => {
 //     card.addEventListener('click', flipCard);
