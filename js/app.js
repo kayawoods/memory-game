@@ -1,19 +1,19 @@
 /*-------------------------------- Constants --------------------------------*/
-const cards = ['🧄', '🧄','🫘', '🫘','🍝', '🍝', '🍌', '🍌','🍅', '🍅', '🫚', '🫚','🍮', '🍮', '🧀', '🧀',  '🍼', '🍼', '🥩', '🥩', '🍠', '🍠', '🧇', '🧇']
-    // '🧄', '🧄',
-    // '🫘', '🫘',
-    // '🍝', '🍝',
-    // '🍌', '🍌',
-    // '🍅', '🍅',
-    // '🫚', '🫚',
-    // '🍮', '🍮',
-    // '🧀', '🧀',
-    // '🍼', '🍼',
-    // '🥩', '🥩',
-    // '🍠', '🍠',
-    // '🧇', '🧇']
+const cards = ['🧄', '🧄', '🫘', '🫘', '🍝', '🍝', '🍌', '🍌', '🍅', '🍅', '🫚', '🫚', '🍮', '🍮', '🧀', '🧀', '🍼', '🍼', '🥩', '🥩', '🍠', '🍠', '🧇', '🧇']
+// '🧄', '🧄',
+// '🫘', '🫘',
+// '🍝', '🍝',
+// '🍌', '🍌',
+// '🍅', '🍅',
+// '🫚', '🫚',
+// '🍮', '🍮',
+// '🧀', '🧀',
+// '🍼', '🍼',
+// '🥩', '🥩',
+// '🍠', '🍠',
+// '🧇', '🧇']
 
-    // const myArray = ['🧄','🫘','🍝','🍌','🍅','🫚','🍮','🧀','🍼','🥩','🍠','🧇'];
+// const myArray = ['🧄','🫘','🍝','🍌','🍅','🫚','🍮','🧀','🍼','🥩','🍠','🧇'];
 // /*---------------------------- Variables (state) ----------------------------*/
 
 let firstPick
@@ -21,7 +21,7 @@ let secondPick
 let matches
 let timer
 let clicks
-let interval 
+let interval
 
 
 
@@ -66,11 +66,11 @@ const card24Text = document.getElementById("card-24");
 
 
 const render = () => {
-   
+
     // messageDisplay.innerText = 'you have 90 seconds to match them all🤔';
     timerDisplay.innerText = timer
-    
-    
+
+
     // console.log(timer);
 
 };
@@ -82,25 +82,26 @@ const init = () => {
     matches = 0
     clicks = 0
     timer = 90
+    totalPairs = 12
 
 
     messageDisplay.innerText = 'Click to flip. Make a match. 12 pairs, 90 seconds.';
-   
-    
 
 
 
-    
-   
-   
+
+
+
+
+
 
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
-      }
-      
+    }
+
     shuffleArray(cards)
     shuffleArray(cards)
 
@@ -111,21 +112,21 @@ const init = () => {
     const card3 = cards[2]
     card3Text.innerText = card3
     const card4 = cards[3]
-    card4Text.innerText = card4 
+    card4Text.innerText = card4
     const card5 = cards[4]
-    card5Text.innerText = card5 
+    card5Text.innerText = card5
     const card6 = cards[5]
-    card6Text.innerText = card6 
+    card6Text.innerText = card6
     const card7 = cards[6]
     card7Text.innerText = card7
     const card8 = cards[7]
-    card8Text.innerText = card8 
+    card8Text.innerText = card8
     const card9 = cards[8]
-    card9Text.innerText = card9 
+    card9Text.innerText = card9
     const card10 = cards[9]
-    card10Text.innerText = card10 
+    card10Text.innerText = card10
     const card11 = cards[10]
-    card11Text.innerText = card11 
+    card11Text.innerText = card11
     const card12 = cards[11]
     card12Text.innerText = card12
     const card13 = cards[12]
@@ -153,27 +154,78 @@ const init = () => {
     const card24 = cards[23]
     card24Text.innerText = card24
 
-    
-
-
-   
 
 
 
 
 
-    
-  
-  
-    render(); 
+
+
+
+
+
+
+
+    render();
     timerTrack();
-    
-    
-  
+
+
+
 
 
 
 };
+
+;
+const checkWin = () => {
+    if (matches === 12) {
+        clearInterval(interval);
+        messageDisplay.innerText = 'WIN WIN WIN'
+        disableCards();
+    }
+}
+
+const timerTrack = () => {
+
+    if (timer > 0) {
+        clearInterval(interval)
+        interval = setInterval(countTimerDown, 1000);
+
+    }
+}
+
+
+const flipCard = (event) => {
+
+    let clickedCard = event.currentTarget;
+    if (clickedCard === firstPick || clickedCard.classList.contains('is-flipped'))
+        return;
+
+clicks += 1
+clickedCard.classList.toggle('is-flipped');
+
+if (!firstPick) {
+    firstPick = clickedCard;
+}
+else if (!secondPick) {
+    secondPick = clickedCard;
+
+    if (firstPick.innerText === secondPick.innerText) {
+        matches += 1;
+        resetTurn()
+        checkWin()
+    } else if (firstPick.innerText !== secondPick.innerText)
+        setTimeout(() => {
+            firstPick.classList.remove('is-flipped');
+            secondPick.classList.remove('is-flipped');
+            resetTurn()
+        }, 1000)
+
+
+    }
+}
+
+
 
 
 const countTimerDown = () => {
@@ -186,79 +238,14 @@ const countTimerDown = () => {
         timerDisplay.innerText = 'times up'
         // console.log('times up'); 
         disableCards();
-        if (matches === 12){
+        if (matches === 12) {
             messageDisplay.innerText = 'you win';
         } else {
-            messageDisplay.innerText = 'loser (its okay though)'
+            messageDisplay.innerText = 'loser (just try again)'
         }
-        }
-
     }
-;
 
-
-const timerTrack = () => {
-
-    if (timer > 0) {
-        clearInterval(interval)
-        interval = setInterval(countTimerDown, 1000);
-        
 }
-}
-// } else {
-//     console.log('not a match');
-//     messageDisplay.innerText = 'Not a match'
-//     if (matches === 12) {
-//          messageDisplay.innerText = 'you won';
-//     }
-//     else if (timer === 0 && matches !== 12) {
-//         messageDisplay.innerText = 'loser';
-//         console.log('loser!')
-
-
-
-
-
-
-
-const flipCard = (event) => {
-    
-    let clickedCard = event.currentTarget;
-    clicks += 1
-    clickedCard.classList.toggle('is-flipped');
-
-    if (!firstPick) {
-        firstPick = clickedCard;
-        console.log('First Pick:', firstPick.innerText);
-    }
-    else if (!secondPick) {
-        secondPick = clickedCard;
-        matches += 1
-        console.log('Second Pick:', secondPick.innerText);
-        if (firstPick.innerText === secondPick.innerText) {
-            console.log('match');
-            resetTurn()
-        } else if  (firstPick.innerText !== secondPick.innerText) 
-            setTimeout (() => {
-                firstPick.classList.remove('is-flipped'); 
-                secondPick.classList.remove('is-flipped'); 
-                resetTurn()  
-            }, 1000) 
-                
-              
-            
-    }
-    // if(matches === 12) {
-    //     messageDisplay.innerText = '🎉 You win! 🎉'
-    
-    // }
-    // else if (timer === 0 && matches !== 12){
-    //     messageDisplay.innerText = 'You lose, try again!'
-//         // document.getElementById('message').textContent ='You lose, try again!'
-        
-};
-
-
 
 
 const resetTurn = () => {
@@ -276,7 +263,7 @@ const disableCards = () => {
 };
 
 const resetCards = () => {
-window.location.reload();
+    window.location.reload();
 }
 resetButton.addEventListener('click', resetCards)
 resetButton.addEventListener('click', init)
@@ -286,6 +273,6 @@ cardElements.forEach(card => {
     card.addEventListener('click', flipCard);
 });
 
-init(); 
+init();
 
 
