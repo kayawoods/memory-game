@@ -85,7 +85,7 @@ const init = () => {
     totalPairs = 12
 
 
-    messageDisplay.innerText = 'Click to flip. Make a match. 12 pairs, 90 seconds.';
+    // messageDisplay.innerText = 'Click to flip. Make a match. 12 pairs, 90 seconds.';
 
 
 
