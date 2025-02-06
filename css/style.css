@@ -5,7 +5,7 @@ header {
     font-family: 'Unbounded', sans-serif;
     font-size: 2rem;
     font-weight: 800;
-    color: #E63946;
+    color: #FF4D4D;
     margin-bottom: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -14,7 +14,7 @@ header {
 #timerDisplay {
     font-size: 4rem;
     font-weight: 700;
-    color: #C2185B;
+    color: #E91E63;
     text-shadow: 0px 0px 10px rgba(194, 24, 91, 0.7);
     margin-top: 5px;
 }
@@ -22,7 +22,7 @@ header {
 #message {
     font-size: 1rem;
     font-weight: 500;
-    color: #BDBDBD;
+    color: #D6D6D6;
     margin-top: 5px;
     text-transform: uppercase;
 }
@@ -86,7 +86,7 @@ body {
 /* Dark glass-inspired front */
 .card-front {
     background: linear-gradient(135deg, rgba(50, 0, 50, 0.9), rgba(20, 0, 20, 0.9));
-    color: #E63946;
+    color: #FF4D4D;
 }
 
 /* Deep neon edge effect */
