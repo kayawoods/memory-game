@@ -13,7 +13,7 @@ const cards = [
     '🍠', '🍠',
     '🧇', '🧇']
 
-
+    // const myArray = ['🧄','🫘','🍝','🍌','🍅','🫚','🍮','🧀','🍼','🥩','🍠','🧇'];
 // /*---------------------------- Variables (state) ----------------------------*/
 
 let firstPick
@@ -42,8 +42,10 @@ const cardElements = document.querySelectorAll('.card');
 
 
 const render = () => {
-    messageDisplay.innerText = 'you have 90 seconds to match them all';
+   
+    messageDisplay.innerText = 'you have 90 seconds to match them all🤔';
     timerDisplay.innerText = timer
+    
     // console.log(timer);
 
 };
@@ -53,17 +55,31 @@ const init = () => {
     firstPick = null
     secondPick = null
     matches = 0
-    timer = 1000
     clicks = 0
+    timer = 1000
+    
+    // init called when page loads and button clicked
+   
 
-    cardElements.forEach(card => {
-        card.addEventListener('click', flipCard);
-    });
-
-
-    render();
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+      
+    shuffleArray(cards)
+    console.log(cards)
+    // console.log(cards[0])
+    // game starts and triggers shffleArray
+    // index and assign to card
+  
+    render(); 
     timerTrack();
-// when function disables, make sure init re enables it 
+    
+    
+  
+
 
 
 };
@@ -154,11 +170,16 @@ const disableCards = () => {
     });
 };
 
+const resetCards = () => {
+window.location.reload();
+}
+resetButton.addEventListener('click', resetCards)
 resetButton.addEventListener('click', init)
 
 
-// cardElements.forEach(card => {
-//     card.addEventListener('click', flipCard);
-// });
+cardElements.forEach(card => {
+    card.addEventListener('click', flipCard);
+});
 
 init(); 
+// render();
