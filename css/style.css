@@ -1,26 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@300;500;700&display=swap');
+
 header {
     text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #E63946;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#timerDisplay {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #C2185B;
+    text-shadow: 0px 0px 10px rgba(194, 24, 91, 0.7);
+    margin-top: 5px;
+}
+
+#message {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #BDBDBD;
+    margin-top: 5px;
+    text-transform: uppercase;
 }
 
 body { 
     min-height: 100vh; 
     min-width: 90vw; 
-    background: linear-gradient(to bottom, pink, lightblue); 
+    background: linear-gradient(135deg, #0D0D0D, #1A1A1A, #3D003D);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: 'Manrope', sans-serif;
+    color: #E1E1E1;
 }
 
 .board {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 10px;
+    gap: 12px;
     width: 600px;
     margin: auto;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .card {
@@ -51,36 +77,48 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    border: 3px solid rgb(54, 107, 109);
     border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3)
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Dark glass-inspired front */
 .card-front {
-    background: linear-gradient(to bottom, rgb(46, 139, 87), rgb(255, 223, 96));
-    color: white
+    background: linear-gradient(135deg, rgba(50, 0, 50, 0.9), rgba(20, 0, 20, 0.9));
+    color: #E63946;
 }
 
+/* Deep neon edge effect */
 .card-back {
-    background-color: white;
+    background: linear-gradient(135deg, #7B1FA2, #303F9F);
     transform: rotateY(180deg);
 }
 
-/* #replay {
+#reset {
     display: block;
-    margin: 30px auto;
-    padding: 15px 30px;
-    background-color: orange;
+    margin: 25px auto;
+    padding: 14px 28px;
+    background: linear-gradient(to right, #7B1FA2, #E63946);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1.2rem;
+    font-weight: 600;
     cursor: pointer;
-} */
+    font-family: 'Unbounded', sans-serif;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.3s ease-in-out;
+    text-shadow: 0px 0px 10px rgba(255, 0, 255, 0.6);
+}
+
+#reset:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 12px rgba(255, 0, 255, 0.8);
+}
 
 .button-container {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    color:rgb(46, 139, 87)
 }

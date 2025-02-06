@@ -84,7 +84,7 @@ const init = () => {
     timer = 90
 
 
-    messageDisplay.innerText = 'Flip the cards to match. 12 pairs in 90 seconds to win. GOOD LUCK.';
+    messageDisplay.innerText = 'Click to flip. Make a match. 12 pairs, 90 seconds.';
    
     
 
@@ -189,7 +189,7 @@ const countTimerDown = () => {
         if (matches === 12){
             messageDisplay.innerText = 'you win';
         } else {
-            messageDisplay.innerText = 'loser'
+            messageDisplay.innerText = 'loser (its okay though)'
         }
         }
 
