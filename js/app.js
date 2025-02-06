@@ -34,6 +34,7 @@ const messageDisplay = document.querySelector('#message');
 const timerDisplay = document.querySelector('#timerDisplay');
 const resetButton = document.querySelector('#reset');
 const cardElements = document.querySelectorAll('.card');
+const card1Text = document.getElementById("card-1");
 
 
 
@@ -69,8 +70,13 @@ const init = () => {
       }
       
     shuffleArray(cards)
+    shuffleArray(cards)
+    
+    const card1 = cards[0]
+    card1Text.innerText = card1
+    
     console.log(cards)
-    // console.log(cards[0])
+    console.log(cards[0])
     // game starts and triggers shffleArray
     // index and assign to card
   
@@ -183,3 +189,4 @@ cardElements.forEach(card => {
 
 init(); 
 // render();
+
