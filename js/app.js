@@ -241,7 +241,7 @@ const countTimerDown = () => {
         if (matches === 12) {
             messageDisplay.innerText = 'you win';
         } else {
-            messageDisplay.innerText = 'loser (just try again)'
+            messageDisplay.innerText = 'lost...please try again'
         }
     }
 
