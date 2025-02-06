@@ -8,7 +8,7 @@ Emoji Memory tests your memory and concentration. As soon as the page loads, a 9
 
 ### [Play the game](https://kayawoods.github.io/memory-game/)
 
-### How to Play: 
+#### How to Play: 
 * Click a card to flip it over 
 * Click a second card to flip it over 
 * If they match, they stay face up
@@ -16,12 +16,25 @@ Emoji Memory tests your memory and concentration. As soon as the page loads, a 9
 * Keep going until all pairs are matched or time runs out - whichever comes first. 
 * Click "Play Again Friend" to shuffle the cards and restart the time  
 
-### Attributions 
+#### Attributions: 
 [MDN](https://developer.mozilla.org/en-US/)
+
 [Stack Overflow](https://stackoverflow.com/questions)
+
 [W3 Schools](https://www.w3schools.com/JSREF/met_win_settimeout.asp)
+
 [Google AI Assistant](https://www.google.com/)
 
-### Technologies Used 
+[Google Fonts](https://fonts.google.com/)
 
+#### Technologies Used:
+* Javascript 
+* CSS 
+* HTML 
 
+#### Future Enhancements: 
+* loop the card id's to reduce code clunkiness 
+* Add a start button 
+* Restructure code so that init() doesn't need to be called at the button 
+* Prevent user throwing off the match functions by clicking quickly 
+* Provide score of total matches won and lost 
