@@ -67,8 +67,9 @@ const card24Text = document.getElementById("card-24");
 
 const render = () => {
    
-    messageDisplay.innerText = 'you have 90 seconds to match them all🤔';
+    // messageDisplay.innerText = 'you have 90 seconds to match them all🤔';
     timerDisplay.innerText = timer
+    
     
     // console.log(timer);
 
@@ -80,14 +81,17 @@ const init = () => {
     secondPick = null
     matches = 0
     clicks = 0
-    timer = 120
+    timer = 90
 
+
+    messageDisplay.innerText = 'Flip the cards to match. 12 pairs in 90 seconds to win. GOOD LUCK.';
+   
+    
 
 
 
     
-    
-    // init called when page loads and button clicked (next time just have it do one thing cause this got confusing )
+   
    
 
     const shuffleArray = (array) => {
@@ -159,10 +163,7 @@ const init = () => {
 
 
     
-    console.log(cards)
-    console.log(cards[0])
-    // game starts and triggers shffleArray
-    // index and assign to card
+  
   
     render(); 
     timerTrack();
@@ -185,9 +186,15 @@ const countTimerDown = () => {
         timerDisplay.innerText = 'times up'
         // console.log('times up'); 
         disableCards();
+        if (matches === 12){
+            messageDisplay.innerText = 'you win';
+        } else {
+            messageDisplay.innerText = 'loser'
+        }
+        }
 
     }
-};
+;
 
 
 const timerTrack = () => {
@@ -241,10 +248,18 @@ const flipCard = (event) => {
               
             
     }
+    // if(matches === 12) {
+    //     messageDisplay.innerText = '🎉 You win! 🎉'
     
+    // }
+    // else if (timer === 0 && matches !== 12){
+    //     messageDisplay.innerText = 'You lose, try again!'
+//         // document.getElementById('message').textContent ='You lose, try again!'
+        
 };
 
-// look at tic tac toe updateMessage function - can use some timer logic for that 
+
+
 
 const resetTurn = () => {
     firstPick = null;
@@ -272,5 +287,5 @@ cardElements.forEach(card => {
 });
 
 init(); 
-// render();
+
 
