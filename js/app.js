@@ -1,17 +1,17 @@
 /*-------------------------------- Constants --------------------------------*/
-const cards = [
-    '🧄', '🧄',
-    '🫘', '🫘',
-    '🍝', '🍝',
-    '🍌', '🍌',
-    '🍅', '🍅',
-    '🫚', '🫚',
-    '🍮', '🍮',
-    '🧀', '🧀',
-    '🍼', '🍼',
-    '🥩', '🥩',
-    '🍠', '🍠',
-    '🧇', '🧇']
+const cards = ['🧄', '🧄','🫘', '🫘','🍝', '🍝', '🍌', '🍌','🍅', '🍅', '🫚', '🫚','🍮', '🍮', '🧀', '🧀',  '🍼', '🍼', '🥩', '🥩', '🍠', '🍠', '🧇', '🧇']
+    // '🧄', '🧄',
+    // '🫘', '🫘',
+    // '🍝', '🍝',
+    // '🍌', '🍌',
+    // '🍅', '🍅',
+    // '🫚', '🫚',
+    // '🍮', '🍮',
+    // '🧀', '🧀',
+    // '🍼', '🍼',
+    // '🥩', '🥩',
+    // '🍠', '🍠',
+    // '🧇', '🧇']
 
     // const myArray = ['🧄','🫘','🍝','🍌','🍅','🫚','🍮','🧀','🍼','🥩','🍠','🧇'];
 // /*---------------------------- Variables (state) ----------------------------*/
@@ -55,6 +55,10 @@ const card18Text = document.getElementById("card-18");
 const card19Text = document.getElementById("card-19");
 const card20Text = document.getElementById("card-20");
 const card21Text = document.getElementById("card-21");
+const card22Text = document.getElementById("card-22");
+const card23Text = document.getElementById("card-23");
+const card24Text = document.getElementById("card-24");
+
 
 
 
@@ -76,9 +80,14 @@ const init = () => {
     secondPick = null
     matches = 0
     clicks = 0
-    timer = 1000
+    timer = 120
+
+
+
+
     
-    // init called when page loads and button clicked
+    
+    // init called when page loads and button clicked (next time just have it do one thing cause this got confusing )
    
 
     const shuffleArray = (array) => {
@@ -116,24 +125,31 @@ const init = () => {
     const card12 = cards[11]
     card12Text.innerText = card12
     const card13 = cards[12]
-    card13Text.innerText = card13  
-    // why  getting error message here & timer dissapear
+    card13Text.innerText = card13
     const card14 = cards[13]
     card14Text.innerText = card14
     const card15 = cards[14]
     card15Text.innerText = card15
     const card16 = cards[15]
-    card16Text.innerText = card16 
+    card16Text.innerText = card16
     const card17 = cards[16]
-    card17Text.innerText = card17 
+    card17Text.innerText = card17
     const card18 = cards[17]
     card18Text.innerText = card18
     const card19 = cards[18]
-    card19Text.innerText = card19 
+    card19Text.innerText = card19
     const card20 = cards[19]
     card20Text.innerText = card20
     const card21 = cards[20]
-    card21Text.innerText = card21 
+    card21Text.innerText = card21
+    const card22 = cards[21]
+    card22Text.innerText = card22
+    const card23 = cards[22]
+    card23Text.innerText = card23
+    const card24 = cards[23]
+    card24Text.innerText = card24
+
+    
 
 
    
@@ -193,7 +209,7 @@ const timerTrack = () => {
 //         console.log('loser!')
 
 
-// }  why isnt this working ?????
+
 
 
 
