@@ -16,7 +16,7 @@ Emoji Memory tests your memory and concentration. As soon as the page loads, a 9
 * Keep going until all pairs are matched or time runs out - whichever comes first. 
 * Click "Play Again Friend" to shuffle the cards and restart the time  
 
-#### Attributions: 
+## Attributions: 
 [MDN](https://developer.mozilla.org/en-US/)
 
 [Stack Overflow](https://stackoverflow.com/questions)
@@ -27,12 +27,12 @@ Emoji Memory tests your memory and concentration. As soon as the page loads, a 9
 
 [Google Fonts](https://fonts.google.com/)
 
-#### Technologies Used:
+## Technologies Used:
 * Javascript 
 * CSS 
 * HTML 
 
-#### Future Enhancements: 
+## Future Enhancements: 
 * loop the card id's to reduce code clunkiness 
 * Add a start button 
 * Restructure code so that init() doesn't need to be called at the button 
