@@ -86,15 +86,15 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Dark glass-inspired front */
+
 .card-front {
-    background: linear-gradient(135deg, rgba(50, 0, 50, 0.9), rgba(20, 0, 20, 0.9));
+    background: linear-gradient(135deg, rgba(214, 0, 214, 0.9), rgba(20, 0, 20, 0.9));
     color: #FF4D4D;
 }
 
-/* Deep neon edge effect */
+
 .card-back {
-    background: linear-gradient(135deg, #7B1FA2, #303F9F);
+    background: linear-gradient(135deg, #B14BDD, #6276D0);
     transform: rotateY(180deg);
 }
 
@@ -126,11 +126,6 @@ body {
     margin-top: 50px;
 }
 
-#instructions p {
-    text-align: center;
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #E1E1E1;
-    background: rgba(255, 255, 255, 0.1);  
+@media (max-width:500px) {
+    header
 }

@@ -34,6 +34,7 @@ const messageDisplay = document.querySelector('#message');
 const timerDisplay = document.querySelector('#timerDisplay');
 const resetButton = document.querySelector('#reset');
 const cardElements = document.querySelectorAll('.card');
+const beginButtonElement = document.querySelector('#begin')
 const card1Text = document.getElementById("card-1");
 const card2Text = document.getElementById("card-2");
 const card3Text = document.getElementById("card-3");
@@ -201,28 +202,33 @@ const flipCard = (event) => {
     if (clickedCard === firstPick || clickedCard.classList.contains('is-flipped'))
         return;
 
-clicks += 1
-clickedCard.classList.toggle('is-flipped');
+    clicks += 1
+    clickedCard.classList.toggle('is-flipped');
 
-if (!firstPick) {
-    firstPick = clickedCard;
-}
-else if (!secondPick) {
-    secondPick = clickedCard;
-
-    if (firstPick.innerText === secondPick.innerText) {
-        matches += 1;
-        resetTurn()
-        checkWin()
-    } else if (firstPick.innerText !== secondPick.innerText)
-        setTimeout(() => {
-            firstPick.classList.remove('is-flipped');
-            secondPick.classList.remove('is-flipped');
+    if (!firstPick) {
+        firstPick = clickedCard;
+    }
+    else if (!secondPick) {
+        secondPick = clickedCard;
+    cardElements.forEach(card => card.removeEventListener('click', flipCard))
+        if (firstPick.innerText === secondPick.innerText) {
+            matches += 1;
             resetTurn()
-        }, 1000)
+            checkWin()
+           resumeClicks()
+        } else if (firstPick.innerText !== secondPick.innerText)
+            setTimeout(() => {
+                firstPick.classList.remove('is-flipped');
+                secondPick.classList.remove('is-flipped');
+                resetTurn()
+                resumeClicks()
+            }, 1000)
 
 
     }
+}
+const resumeClicks = () => {
+    cardElements.forEach(card => card.addEventListener('click', flipCard))
 }
 
 
@@ -232,11 +238,9 @@ const countTimerDown = () => {
     if (timer > 0) {
         timer = timer - 1;
         render();
-        // console.log(timer);
     }
     if (timer === 0) {
         timerDisplay.innerText = 'times up'
-        // console.log('times up'); 
         disableCards();
         if (matches === 12) {
             messageDisplay.innerText = 'you win';
@@ -267,6 +271,7 @@ const resetCards = () => {
 }
 resetButton.addEventListener('click', resetCards)
 resetButton.addEventListener('click', init)
+
 
 
 cardElements.forEach(card => {
