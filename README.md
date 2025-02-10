@@ -35,7 +35,6 @@ Emoji Memory tests your memory and concentration. As soon as the page loads, a 9
 ## Future Enhancements: 
 * loop the card id's to reduce code clunkiness 
 * Add a start button 
-* Restructure code so that init() doesn't need to be called at the button 
-* Prevent user throwing off the match functions by clicking quickly 
+* Restructure code so that init() doesn't need to be called at the button  
 * Provide score of total matches won and lost 
-* Improve mobile compatability 
+* Improve mobile compatibility 

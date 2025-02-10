@@ -13,7 +13,6 @@ const cards = ['🧄', '🧄', '🫘', '🫘', '🍝', '🍝', '🍌', '🍌', '
 // '🍠', '🍠',
 // '🧇', '🧇']
 
-// const myArray = ['🧄','🫘','🍝','🍌','🍅','🫚','🍮','🧀','🍼','🥩','🍠','🧇'];
 // /*---------------------------- Variables (state) ----------------------------*/
 
 let firstPick
@@ -22,11 +21,6 @@ let matches
 let timer
 let clicks
 let interval
-
-
-
-
-
 /*------------------------ Cached Element References ------------------------*/
 
 const board = document.querySelector('.board');
@@ -60,22 +54,13 @@ const card22Text = document.getElementById("card-22");
 const card23Text = document.getElementById("card-23");
 const card24Text = document.getElementById("card-24");
 
-
-
-
 /*-------------------------------- Functions --------------------------------*/
-
 
 const render = () => {
 
-    // messageDisplay.innerText = 'you have 90 seconds to match them all🤔';
+
     timerDisplay.innerText = timer
-
-
-    // console.log(timer);
-
 };
-
 
 const init = () => {
     firstPick = null
@@ -84,17 +69,6 @@ const init = () => {
     clicks = 0
     timer = 90
     totalPairs = 12
-
-
-    // messageDisplay.innerText = 'Click to flip. Make a match. 12 pairs, 90 seconds.';
-
-
-
-
-
-
-
-
 
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
@@ -155,25 +129,8 @@ const init = () => {
     const card24 = cards[23]
     card24Text.innerText = card24
 
-
-
-
-
-
-
-
-
-
-
-
-
     render();
     timerTrack();
-
-
-
-
-
 
 };
 
